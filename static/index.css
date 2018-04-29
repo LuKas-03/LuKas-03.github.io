@@ -1,0 +1,88 @@
+body {
+    margin: 0px;
+}
+
+.animated {
+    transition-property: background-color;
+    transition-duration: 3s;
+  }
+
+.header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    position:relative;
+    padding: 10px 15%;
+    margin: auto;
+    background-color: #283e56;
+}
+.header h1 {
+    float: left;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 50px;
+    padding: 10px;
+    margin: 0px;
+    color: #fff;
+}
+.logo {
+    display: block;
+    max-height: 80px;
+    max-width: auto;
+}
+
+.checkList {
+    width: 70%;
+    margin: auto;
+}
+
+.checkList h2 {
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: lighter;
+}
+.checkList h2, i {
+    font-size: 36px;
+    margin: 10px;
+    transition: all ease .5s;
+}
+
+.checkList .item {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border-bottom: 2px double#ebebeb;
+    transition: all ease .5s;
+}
+
+.result {
+    padding: 10px 30px;
+    text-decoration: none;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 36px;
+    background: #ededed;
+    color: #e54235;
+    margin: auto;
+    display: block;
+    font-weight: bold;
+}
+
+.result:hover {
+    background: #283e56;
+    color: #ebebeb;
+}
+
+.result:active {
+    background: #ebebeb;
+    color: #283e56;
+}
+
+@keyframes item_switch {
+    from {
+        background: linear-gradient(to right, #fff 0%, #283e56 1%, #fff 2%); 
+    }
+    50% {
+        background: linear-gradient(to right, #fff 45%, #283e56 50%, #fff 55%); 
+    }
+    to {
+        background: linear-gradient(to right, #fff 98%, #283e56 99%, #fff 100%); 
+    }
+}
