@@ -21,9 +21,9 @@ checkList.addEventListener('click', event => {
         let incElem = hiddenInput.parentNode.getElementsByClassName('correct')[0];
         incElem.setAttribute('class', 'disabled far fa-square');
     }
-    else {
+    /*else {
         hiddenInput.setAttribute('class', hiddenInput.getAttribute('class').split(' ')[0] + ' far fa-square');
-    }
+    }*/
     setTimeout(sleep, 500, hiddenInput);
 });
 
