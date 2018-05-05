@@ -1,25 +1,34 @@
 var elems = document.getElementsByClassName('item');
 
-for (var i = 0; i < elems.length; i++) {
+/*for (var i = 0; i < elems.length; i++) {
     elems[i].addEventListener("click", swichStatus);
-  }
+  }*/
 
-function swichStatus() {
-    this.style.background = '#ebebeb';
-    const hiddenInput = this.getElementsByTagName('i')[0];
+checkList.addEventListener('click', event => {
+    //this.style.background = '#ebebeb';
+    const hiddenInput = event.target;
+    if (hiddenInput.tagName != 'I' || hiddenInput.className.includes('disabled')) {
+        return;
+    }
     hiddenInput.style.color = '#e54235'
-    if (hiddenInput.getAttribute('class') == 'far fa-square') {
-        hiddenInput.setAttribute('class', 'fas fa-check-square');
+    if (hiddenInput.getAttribute('class') == 'correct far fa-square') {
+        hiddenInput.setAttribute('class', 'correct fas fa-check-square');
+        let incElem = hiddenInput.parentNode.getElementsByClassName('incorrect')[0];
+        incElem.setAttribute('class', 'disabled far fa-square');
     }
-    else if (hiddenInput.getAttribute('class') == 'fas fa-check-square') {
-        hiddenInput.setAttribute('class', 'far fa-square');
+    else if (hiddenInput.getAttribute('class') == 'incorrect far fa-square') {
+        hiddenInput.setAttribute('class', 'incorrect fas fa-times');
+        let incElem = hiddenInput.parentNode.getElementsByClassName('correct')[0];
+        incElem.setAttribute('class', 'disabled far fa-square');
     }
-    setTimeout(sleep, 500, hiddenInput, this);
-}
+    else {
+        hiddenInput.setAttribute('class', hiddenInput.getAttribute('class').split(' ')[0] + ' far fa-square');
+    }
+    setTimeout(sleep, 500, hiddenInput);
+});
 
-function sleep(hiddenInput, item) {
+function sleep(hiddenInput) {
     hiddenInput.style.color = '#000';
-    item.style.background = 'rgba(0, 0, 0, 0)';
     } 
 
 resultPrint.addEventListener('click', event => {
@@ -31,7 +40,7 @@ resultPrint.addEventListener('click', event => {
     }
     for (var i = 0; i < items.length; i++ )
     {
-        if (items[i].getAttribute('class') == 'fas fa-check-square') {
+        if (items[i].getAttribute('class') == 'correct fas fa-check-square') {
             value++;
         }
     }

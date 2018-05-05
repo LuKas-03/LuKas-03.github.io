@@ -52,6 +52,18 @@ body {
     border-bottom: 2px double#ebebeb;
     transition: all ease .5s;
 }
+.checkList .disabled {
+    color: #aaa;
+}
+
+.checkList .item i {
+    font-size: 46px;
+    margin: 9px;
+}
+
+.checkList .item  .fa-times {
+    margin: 9px 11px;
+}
 
 .button {
     padding: 10px 30px;
